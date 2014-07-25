@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.kolwit.updatelivetile"
+        version="1.0.0">
+
+    <name>Cordova Plugin Update LiveTile for Windows Phone 8</name>
+    <description>
+		Cordova/Phonegap function to update the LiveTile parameters for Windows Phone 8. This function allows you to update a standard, flip or iconic tile.
+	</description>
+    <license>MIT</license>
+    <keywords>phonegap,cordova,livetile,wp8,windows phone 8,Iconic Tile,Flip Tile,Standard Tile.</keywords>
+	
+	<engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines> 
+
+    <js-module src="www/UpdateLiveTile.js" name="UpdateLiveTile">
+        <clobbers target="UpdateLiveTile" />
+    </js-module>
+	
+	<!-- wp7 -->
+    <platform name="wp7">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UpdateLiveTile">
+                <param name="wp-package" value="UpdateLiveTile"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp7/UpdateLiveTile.cs" />
+    </platform>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UpdateLiveTile">
+                <param name="wp-package" value="UpdateLiveTile"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp8/UpdateLiveTile.cs" />
+    </platform>
+
+</plugin>
