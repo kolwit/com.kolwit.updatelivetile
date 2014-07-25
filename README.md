@@ -1,15 +1,21 @@
 # Update Windows Phone 8 LiveTile plugin for Cordova 3.x and PhoneGap
 
-This plugin is based on the plugins [com.risingj.cordova.livetiles](https://github.com/purplecabbage/livetiles).
-
 With this plugin you are able to update the existing tile. The default tile data you can configure in your WMAppManifest.xml
 Please check on Microsoft MSDN the page [Tiles for Windows Phone 8](http://msdn.microsoft.com/en-us/library/windows/apps/hh202948%28v=vs.105%29.aspx) for instructions how to configure the default tile.
+
+As a base i have used the cordova plugin [com.risingj.cordova.livetiles](https://github.com/purplecabbage/livetiles). That one can also create secondary tiles, but cannot handle all the fields for the Flip Tile and Iconic Tile.
+
 
 ## Example usage in general
 
 The function will return a message on error, you can catch it with a function.
 
 ```js
+var tileOptions = {
+		tileType:					'standard',
+		Title:						'Hello'
+	};
+
 var successFunc = function () {};
 
 var errorFunc = function (c,m) {
@@ -25,17 +31,17 @@ In case you configured a flip tile, please configure the options like below:
 
 ```js
 var tileOptions = {
-		'tileType':					'flip',
-		'Title':					'your Title',
-		'BackTitle':				'your BackTitle',
-		'BackContent':				'your BackContent',
-		'WideBackContent':			'your WideBackContent',
-		'Count':					'Count', // numeric value from 0 to 99
-		'SmallBackgroundImage':		'path/to/SmallBackgroundImage.png',
-		'BackgroundImage':			'path/to/BackgroundImage.png',
-		'BackBackgroundImage':		'path/to/BackBackgroundImage.png',
-		'WideBackgroundImage':		'path/to/WideBackgroundImage.png',
-		'WideBackBackgroundImage':	'path/to/WideBackBackgroundImage.png'
+		tileType:					'flip',
+		Title:						'your Title',
+		BackTitle:					'your BackTitle',
+		BackContent:				'your BackContent',
+		WideBackContent:			'your WideBackContent',
+		Count:						'Count', // numeric value from 0 to 99
+		SmallBackgroundImage:		'path/to/SmallBackgroundImage.png',
+		BackgroundImage:			'path/to/BackgroundImage.png',
+		BackBackgroundImage:		'path/to/BackBackgroundImage.png',
+		WideBackgroundImage:		'path/to/WideBackgroundImage.png',
+		WideBackBackgroundImage:	'path/to/WideBackBackgroundImage.png'
 	};
 	
 window.plugins.UpdateLiveTile.updateTile(successFunc,errorFunc,tileOptions);
@@ -50,15 +56,15 @@ In case you configured a flip tile, please configure the options like below:
 
 ```js
 var tileOptions = {
-		'tileType':					'iconic',
-		'Title':					'your Title',
-		'WideContent1':				'your WideContent1',
-		'WideContent2':				'your WideContent2',
-		'WideContent3':				'your WideContent3',
-		'Count':					'Count', // numeric value from 0 to 99
-		'SmallIconImage':			'path/to/SmallIconImage.png',
-		'IconImage':				'path/to/IconImage.png',
-		'BackgroundColor':			'#11BB75' // color hex like in CSS
+		tileType:					'iconic',
+		Title:						'your Title',
+		WideContent1:				'your WideContent1',
+		WideContent2:				'your WideContent2',
+		WideContent3:				'your WideContent3',
+		Count:						'Count', // numeric value from 0 to 99
+		SmallIconImage:				'path/to/SmallIconImage.png',
+		IconImage:					'path/to/IconImage.png',
+		BackgroundColor:			'#11BB75' // color hex like in CSS
 	};
 	
 window.plugins.UpdateLiveTile.updateTile(successFunc,errorFunc,tileOptions);
@@ -73,13 +79,13 @@ In case you configured a standard tile, please configure the options like below:
 
 ```js
 var tileOptions = {
-		'tileType':					'standard',
-		'Title':					'your Title',
-		'BackTitle':				'your BackTitle',
-		'BackContent':				'your BackContent',
-		'Count':					'Count', // numeric value from 0 to 99
-		'BackgroundImage':			'path/to/BackgroundImage.png',
-		'BackBackgroundImage':		'path/to/BackBackgroundImage.png'
+		tileType:					'standard',
+		Title:						'your Title',
+		BackTitle:					'your BackTitle',
+		BackContent:				'your BackContent',
+		Count:						'Count', // numeric value from 0 to 99
+		BackgroundImage:			'path/to/BackgroundImage.png',
+		BackBackgroundImage:		'path/to/BackBackgroundImage.png'
 	};
 	
 window.plugins.UpdateLiveTile.updateTile(successFunc,errorFunc,tileOptions);
