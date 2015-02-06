@@ -52,7 +52,7 @@ Instructions for the fields can be found at Microsoft: [Flip Tile template for W
 
 ## Iconic Tile template for Windows Phone 8
 
-In case you configured a flip tile, please configure the options like below:
+In case you configured an iconic tile, please configure the options like below:
 
 ```js
 var tileOptions = {
